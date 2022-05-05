@@ -42,6 +42,7 @@ dependencies:
   cloud_firestore: ^3.1.14
   firebase_storage: ^10.2.15
   shared_preferences: ^2.0.13
+  carousel_slider: ^4.1.1
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +68,7 @@ flutter:
 
   assets:
     - images/
+    - slider/
 
 
   fonts:
