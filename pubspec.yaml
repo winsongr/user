@@ -33,7 +33,15 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
+  image_picker: ^0.8.5
+  cupertino_icons: ^1.0.2 
+  geolocator: ^8.2.0
+  geocoding: ^2.0.4
+  firebase_core: ^1.16.0
+  firebase_auth: ^3.3.17
+  cloud_firestore: ^3.1.14
+  firebase_storage: ^10.2.15
+  shared_preferences: ^2.0.13
 
 dev_dependencies:
   flutter_test:
@@ -57,6 +65,23 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  assets:
+    - images/
+
+
+  fonts:
+    - family: Acme
+      fonts:
+        - asset: assets/fonts/Acme-Regular.ttf
+    - family: Kiwi
+      fonts:
+        - asset: assets/fonts/KiwiMaru-Medium.ttf
+    - family: Signatra
+      fonts:
+        - asset: assets/fonts/Signatra.ttf
+    - family: Train
+      fonts:
+        - asset: assets/fonts/TrainOne-Regular.ttf 
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
