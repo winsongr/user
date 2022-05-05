@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:user/auth/auth_screen.dart';
 import 'package:user/global/global.dart';
+import 'package:user/widgets/app_drawer.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -28,8 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
           sharedPreferences!.getString("name")!,
         ),
         centerTitle: true,
-        automaticallyImplyLeading: false,
-      ),
+      ),drawer: const AppDrawer(),
       body: Center(
           child: ElevatedButton(
         child: const Text("logout"),
