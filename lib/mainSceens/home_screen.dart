@@ -29,20 +29,9 @@ class _HomeScreenState extends State<HomeScreen> {
           sharedPreferences!.getString("name")!,
         ),
         centerTitle: true,
-      ),drawer: const AppDrawer(),
-      body: Center(
-          child: ElevatedButton(
-        child: const Text("logout"),
-        style: ElevatedButton.styleFrom(
-          primary: Colors.cyan,
-        ),
-        onPressed: () {
-          firebaseAuth.signOut().then((value) {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (c) => const AuthScreen()));
-          });
-        },
-      )),
+      ),
+      drawer: const AppDrawer(),
+      body: const Center(child: Text("test")),
     );
   }
 }
