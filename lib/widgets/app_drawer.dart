@@ -32,7 +32,7 @@ class AppDrawer extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  sharedPreferences!.getString("name")!,
+         "${sharedPreferences?.getString("name")}",
                   style: const TextStyle(
                       color: Colors.black, fontSize: 20, fontFamily: "Train"),
                 )

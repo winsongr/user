@@ -1,7 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:user/global/global.dart';
+import 'package:user/models/sellers.dart';
 import 'package:user/widgets/app_drawer.dart';
+import 'package:user/widgets/progress_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -56,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
           )),
         ),
         title: Text(
-          sharedPreferences!.getString("name")!,
+          "${sharedPreferences?.getString("name")}",
         ),
         centerTitle: true,
       ),
@@ -106,7 +110,19 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-          )
+          ),
+          // StreamBuilder<QuerySnapshot>(
+          //     stream:
+          //         FirebaseFirestore.instance.collection("sellers").snapshots(),
+          //     builder: (context, snapshot) {
+          //       return !snapshot.hasData
+          //           ? SliverToBoxAdapter(
+          //               child: Center(
+          //                 child: circularProgress(),
+          //               ),
+          //             )
+          //           : StaggeredGrid.count(crossAxisCount: 1,children: [],)
+          //     }),
         ],
       ),
     );
