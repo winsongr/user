@@ -11,7 +11,7 @@ class AppDrawer extends StatelessWidget {
       child: ListView(
         children: [
           Container(
-            padding: EdgeInsets.only(top: 25, bottom: 10),
+            padding: const EdgeInsets.only(top: 25, bottom: 10),
             child: Column(
               children: [
                 Material(

@@ -76,10 +76,8 @@ class _LoginScreenState extends State<LoginScreen> {
         .then((snapshot) async {
       if (snapshot.exists) {
         await sharedPreferences!.setString("uid", currentUser.uid);
-        await sharedPreferences!
-            .setString("email", snapshot.data()!["Email"]);
-        await sharedPreferences!
-            .setString("name", snapshot.data()!["Name"]);
+        await sharedPreferences!.setString("email", snapshot.data()!["Email"]);
+        await sharedPreferences!.setString("name", snapshot.data()!["Name"]);
         await sharedPreferences!
             .setString("photoUrl", snapshot.data()!["photoUrl"]);
 
@@ -91,14 +89,14 @@ class _LoginScreenState extends State<LoginScreen> {
         Navigator.pop(context);
         Navigator.push(
             context, MaterialPageRoute(builder: (c) => const AuthScreen()));
-            showDialog(
-          context: context,
-          builder: (c) {
-            return const ErrorDialog(
-              message: "No record found!",
-            );
-          });
-      } 
+        showDialog(
+            context: context,
+            builder: (c) {
+              return const ErrorDialog(
+                message: "No record found!",
+              );
+            });
+      }
     });
   }
 
