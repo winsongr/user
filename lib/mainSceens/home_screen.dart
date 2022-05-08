@@ -1,11 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:user/global/global.dart';
-import 'package:user/models/sellers.dart';
 import 'package:user/widgets/app_drawer.dart';
-import 'package:user/widgets/progress_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -120,9 +116,18 @@ class _HomeScreenState extends State<HomeScreen> {
           //               child: Center(
           //                 child: circularProgress(),
           //               ),
-          //             )
-          //           : StaggeredGrid.count(crossAxisCount: 1,children: [],)
-          //     }),
+          //             );
+                    
+                //       : GridView.builder(
+                //         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                //           crossAxisCount: 1,
+                //         ),
+                //         itemCount: snapshot.data!.docs.length,
+                //         itemBuilder: (BuildContext context, int index) {
+                //  //         Sellers sModel = Sellers.fromJson(snapshot.data!.docs[index].data()?) ;
+                //         },
+              //   //       );
+              // }),
         ],
       ),
     );
