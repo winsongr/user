@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:user/auth/auth_screen.dart';
 import 'package:user/global/global.dart';
+import 'package:user/mainSceens/home_screen.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class AppDrawer extends StatelessWidget {
                   elevation: 10,
                   child: Padding(
                     padding: const EdgeInsets.all(1.0),
-                    child: Container(
+                    child: SizedBox(
                       height: 160,
                       width: 160,
                       child: CircleAvatar(
@@ -60,7 +61,7 @@ class AppDrawer extends StatelessWidget {
                       color: Colors.black,
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () {Navigator.push(context, MaterialPageRoute(builder: (c)=>const HomeScreen()));},
                 ),
                 const Divider(
                   height: 10,

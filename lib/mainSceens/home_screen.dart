@@ -1,12 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:user/global/global.dart';
 import 'package:user/models/sellers.dart';
 import 'package:user/widgets/app_drawer.dart';
-import 'package:user/widgets/info_design.dart';
 import 'package:user/widgets/progress_bar.dart';
+import 'package:user/widgets/sellers_design.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -69,42 +68,47 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
+            SizedBox(
+              
               height: MediaQuery.of(context).size.height * .3,
               width: MediaQuery.of(context).size.width,
-              child: CarouselSlider(
-                options: CarouselOptions(
-                  height: MediaQuery.of(context).size.height * .3,
-                  aspectRatio: 16 / 9,
-                  viewportFraction: 0.8,
-                  initialPage: 0,
-                  enableInfiniteScroll: true,
-                  reverse: false,
-                  autoPlay: true,
-                  autoPlayInterval: const Duration(seconds: 2),
-                  autoPlayAnimationDuration: const Duration(milliseconds: 500),
-                  autoPlayCurve: Curves.decelerate,
-                  enlargeCenterPage: true,
-                  scrollDirection: Axis.horizontal,
-                ),
-                items: items.map((index) {
-                  return Builder(builder: (BuildContext context) {
-                    return Container(
-                      width: MediaQuery.of(context).size.width,
-                      margin: const EdgeInsets.symmetric(horizontal: 1.0),
-                      decoration: const BoxDecoration(
-                        color: Colors.black,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Image.asset(
-                          index,
-                          fit: BoxFit.fill,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: CarouselSlider(
+                  
+                  options: CarouselOptions(
+                    height: MediaQuery.of(context).size.height * .3,
+                    aspectRatio: 16 / 9,
+                    viewportFraction: 0.8,
+                    initialPage: 0,
+                    enableInfiniteScroll: true,
+                    reverse: false,
+                    autoPlay: true,
+                    autoPlayInterval: const Duration(seconds: 2),
+                    autoPlayAnimationDuration: const Duration(milliseconds: 500),
+                    autoPlayCurve: Curves.decelerate,
+                    enlargeCenterPage: true,
+                    scrollDirection: Axis.horizontal,
+                  ),
+                  items: items.map((index) {
+                    return Builder(builder: (BuildContext context) {
+                      return Container(
+                        width: MediaQuery.of(context).size.width,
+                        margin: const EdgeInsets.symmetric(horizontal: 1.0),
+                        decoration: const BoxDecoration(
+                          color: Colors.black,
                         ),
-                      ),
-                    );
-                  });
-                }).toList(),
+                        child: Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: Image.asset(
+                            index,
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                      );
+                    });
+                  }).toList(),
+                ),
               ),
             ),
             StreamBuilder<QuerySnapshot>(
@@ -121,14 +125,14 @@ class _HomeScreenState extends State<HomeScreen> {
                               const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
                           ),
-                          itemCount: snapshot.data!.docs.length,
+                          itemCount: snapshot.data!.size, 
                           shrinkWrap: true,
                           itemBuilder: (BuildContext context, int index) {
                             Sellers sModel = Sellers.fromJson(
                                 snapshot.data!.docs[index].data()
                                     as Map<String, dynamic>);
 
-                            return InfoDesignWidget(
+                            return SellersDesignWidget(
                                 model: sModel, context: context);
                           },
                         );

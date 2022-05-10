@@ -141,88 +141,86 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Container(
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            const SizedBox(
-              height: 10,
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          const SizedBox(
+            height: 10,
+          ),
+          InkWell(
+            onTap: () {
+              _getImage();
+            },
+            child: CircleAvatar(
+              radius: MediaQuery.of(context).size.width * 0.20,
+              backgroundColor: Colors.white,
+              backgroundImage: imageXfile == null
+                  ? null
+                  : FileImage(File(imageXfile!.path)),
+              child: imageXfile == null
+                  ? Icon(
+                      Icons.add_photo_alternate,
+                      size: MediaQuery.of(context).size.width * 0.20,
+                      color: Colors.grey,
+                    )
+                  : null,
             ),
-            InkWell(
-              onTap: () {
-                _getImage();
-              },
-              child: CircleAvatar(
-                radius: MediaQuery.of(context).size.width * 0.20,
-                backgroundColor: Colors.white,
-                backgroundImage: imageXfile == null
-                    ? null
-                    : FileImage(File(imageXfile!.path)),
-                child: imageXfile == null
-                    ? Icon(
-                        Icons.add_photo_alternate,
-                        size: MediaQuery.of(context).size.width * 0.20,
-                        color: Colors.grey,
-                      )
-                    : null,
-              ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  CustomTextField(
+                    isObsecre: false,
+                    data: Icons.person,
+                    controller: nameController,
+                    hintText: "Name",
+                  ),
+                  CustomTextField(
+                    isObsecre: false,
+                    data: Icons.email,
+                    controller: emailController,
+                    hintText: "Email",
+                  ),
+                  CustomTextField(
+                    isObsecre: true,
+                    data: Icons.lock,
+                    controller: passwordController,
+                    hintText: "Password",
+                  ),
+                  CustomTextField(
+                    isObsecre: true,
+                    data: Icons.lock,
+                    controller: confirmPasswordController,
+                    hintText: "confirm password",
+                  ),
+                ],
+              )),
+          const SizedBox(
+            height: 20,
+          ),
+          ElevatedButton(
+            onPressed: () {
+              formValidation();
+            },
+            child: const Text(
+              "Sign Up ",
+              style:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(
-              height: 10,
+            style: ElevatedButton.styleFrom(
+              primary: Colors.red,
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
             ),
-            Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    CustomTextField(
-                      isObsecre: false,
-                      data: Icons.person,
-                      controller: nameController,
-                      hintText: "Name",
-                    ),
-                    CustomTextField(
-                      isObsecre: false,
-                      data: Icons.email,
-                      controller: emailController,
-                      hintText: "Email",
-                    ),
-                    CustomTextField(
-                      isObsecre: true,
-                      data: Icons.lock,
-                      controller: passwordController,
-                      hintText: "Password",
-                    ),
-                    CustomTextField(
-                      isObsecre: true,
-                      data: Icons.lock,
-                      controller: confirmPasswordController,
-                      hintText: "confirm password",
-                    ),
-                  ],
-                )),
-            const SizedBox(
-              height: 20,
-            ),
-            ElevatedButton(
-              onPressed: () {
-                formValidation();
-              },
-              child: const Text(
-                "Sign Up ",
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-              ),
-              style: ElevatedButton.styleFrom(
-                primary: Colors.red,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-              ),
-            ),
-            const SizedBox(
-              height: 30,
-            )
-          ],
-        ),
+          ),
+          const SizedBox(
+            height: 30,
+          )
+        ],
       ),
     );
   }

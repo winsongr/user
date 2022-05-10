@@ -1,25 +1,31 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:user/mainSceens/menus_screen.dart';
 import 'package:user/models/sellers.dart';
 
-class InfoDesignWidget extends StatefulWidget {
-  InfoDesignWidget({Key? key, this.model, this.context}) : super(key: key);
-  Sellers? model;
-  BuildContext? context;
+class SellersDesignWidget extends StatefulWidget {
+  const SellersDesignWidget({Key? key, this.model, this.context})
+      : super(key: key);
+  final Sellers? model;
+  final BuildContext? context;
   @override
-  State<InfoDesignWidget> createState() => _InfoDesignWidgetState();
+  State<SellersDesignWidget> createState() => _SellersDesignWidgetState();
 }
 
-class _InfoDesignWidgetState extends State<InfoDesignWidget> {
+class _SellersDesignWidgetState extends State<SellersDesignWidget> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (c) => MenusScreen(model: widget.model)));
+      },
       splashColor: Colors.amber,
       child: Padding(
         padding: const EdgeInsets.all(6.0),
         child: SizedBox(
-          height:MediaQuery.of(context).size.height*1,
+          height: MediaQuery.of(context).size.height * 1,
           width: MediaQuery.of(context).size.width,
           child: Column(children: [
             Divider(
@@ -29,7 +35,7 @@ class _InfoDesignWidgetState extends State<InfoDesignWidget> {
             ),
             Image.network(
               widget.model!.sellerAvatarUrl!,
-              height:180.0,
+              height: 180.0,
               fit: BoxFit.cover,
             ),
             const SizedBox(
@@ -41,7 +47,8 @@ class _InfoDesignWidgetState extends State<InfoDesignWidget> {
                 color: Colors.cyan,
                 fontSize: 20,
               ),
-            ),Divider(
+            ),
+            Divider(
               height: 4,
               thickness: 3,
               color: Colors.grey[300],

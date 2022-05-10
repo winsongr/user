@@ -1,17 +1,17 @@
 class Sellers {
-  String? sellerUID;
+  String? sellerUid;
   String? sellerName;
   String? sellerAvatarUrl;
   String? sellerEmail;
 
   Sellers(
-      {this.sellerUID,
+      {this.sellerUid,
       this.sellerName,
       this.sellerAvatarUrl,
       this.sellerEmail});
 
   Sellers.fromJson(Map<String, dynamic> json) {
-    sellerUID = json["sellerUID"];
+    sellerUid = json["sellerUid"];
     sellerName = json["sellerName"];
     sellerAvatarUrl = json["sellerAvatarUrl"];
     sellerEmail = json["sellerEmail"];
@@ -19,7 +19,7 @@ class Sellers {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data["sellerUID"] = sellerUID;
+    data["sellerUid"] = sellerUid;
     data["sellerName"] = sellerName;
     data["sellerAvatarUrl"] = sellerAvatarUrl;
     data["sellerEmail"] = sellerEmail;

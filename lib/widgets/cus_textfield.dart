@@ -13,8 +13,8 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController? controller;
   final IconData? data;
   final String? hintText;
-  bool isObsecre = true;
-  bool? enabled = true;
+   bool isObsecre = true;
+   bool? enabled = true;
 
   @override
   Widget build(BuildContext context) {
