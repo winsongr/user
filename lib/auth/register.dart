@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:user/global/global.dart';
-import 'package:user/mainSceens/home_screen.dart';
+import 'package:user/mainScreens/home_screen.dart';
 import 'package:user/widgets/cus_textfield.dart';
 import 'package:user/widgets/error_dialog.dart';
 import 'package:user/widgets/loading_dialog.dart';
@@ -132,9 +132,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
     });
     //save locally
     sharedPreferences = await SharedPreferences.getInstance();
-    await sharedPreferences!.setString("uid", currentUser.uid);
-    await sharedPreferences!.setString("name", nameController.text.trim());
-    await sharedPreferences!.setString("email", currentUser.email.toString());
+    await sharedPreferences!.setString("userUid", currentUser.uid);
+    await sharedPreferences!.setString("userName", nameController.text.trim());
+    await sharedPreferences!.setString("userEmail", currentUser.email.toString());
     await sharedPreferences!.setString("photoUrl", userImageUrl);
   }
 

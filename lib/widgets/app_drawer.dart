@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:user/auth/auth_screen.dart';
 import 'package:user/global/global.dart';
-import 'package:user/mainSceens/home_screen.dart';
+import 'package:user/mainScreens/home_screen.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({Key? key}) : super(key: key);
@@ -33,7 +33,7 @@ class AppDrawer extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-         "${sharedPreferences?.getString("name")}",
+                  "${sharedPreferences?.getString("userName")}",
                   style: const TextStyle(
                       color: Colors.black, fontSize: 20, fontFamily: "Train"),
                 )
@@ -61,7 +61,10 @@ class AppDrawer extends StatelessWidget {
                       color: Colors.black,
                     ),
                   ),
-                  onTap: () {Navigator.push(context, MaterialPageRoute(builder: (c)=>const HomeScreen()));},
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (c) => const HomeScreen()));
+                  },
                 ),
                 const Divider(
                   height: 10,

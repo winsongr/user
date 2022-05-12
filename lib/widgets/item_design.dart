@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:user/mainScreens/item_detail_screen.dart';
 import 'package:user/models/items.dart';
 
 class ItemsDesignWidget extends StatefulWidget {
@@ -13,7 +14,12 @@ class ItemsDesignWidget extends StatefulWidget {
 class _ItemsDesignWidgetState extends State<ItemsDesignWidget> {
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return InkWell(onTap: (){
+        
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (c) =>  ItemDetailsScreen(model:widget.model)));
+            
+      },
       splashColor: Colors.amber,
       child: Padding(
         padding: const EdgeInsets.all(6.0),

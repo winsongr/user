@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:user/mainSceens/item_screen.dart';
+import 'package:user/mainScreens/item_screen.dart';
 import 'package:user/models/menus.dart';
 
 class MenusDesignWidget extends StatefulWidget {
@@ -23,44 +23,40 @@ class _MenusDesignWidgetState extends State<MenusDesignWidget> {
       splashColor: Colors.amber,
       child: Padding(
         padding: const EdgeInsets.all(6.0),
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height * 1,
-          width: MediaQuery.of(context).size.width,
-          child: Column(children: [
-            Divider(
-              height: 4,
-              thickness: 3,
-              color: Colors.grey[300],
-            ),
-            Image.network(
-              widget.model!.thumbnailUrl!,
-              height: 150.0,
-              
-              fit: BoxFit.cover,
-            ),
-            const SizedBox(
-              height: 2.0,
-            ),
-            Text(
-              widget.model!.menuTitle!,
-              style: const TextStyle(
-                color: Colors.cyan,
-                fontSize: 20,
+        child: Card(
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height * 1,
+            width: MediaQuery.of(context).size.width,
+            child: Column(children: [
+              const SizedBox(
+                height: 2.0,
               ),
-            ),
-            Text(
-              widget.model!.menuInfo!,
-              style: const TextStyle(
-                color: Colors.cyan,
-                fontSize: 20,
+              Image.network(
+                widget.model!.thumbnailUrl!,
+                height: 150.0,
+                
+                fit: BoxFit.cover,
               ),
-            ),
-            Divider(
-              height: 4,
-              thickness: 3,
-              color: Colors.grey[300],
-            ),
-          ]),
+              const SizedBox(
+                height: 2.0,
+              ),
+              Text(
+                widget.model!.menuTitle!,
+                style: const TextStyle(
+                  color: Colors.cyan,
+                  fontSize: 20,
+                ),
+              ),
+              Text(
+                widget.model!.menuInfo!,
+                style: const TextStyle(
+                  color: Colors.cyan,
+                  fontSize: 20,
+                ),
+              ),
+             
+            ]),
+          ),
         ),
       ),
     );

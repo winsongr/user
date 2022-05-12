@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:user/models/items.dart';
 import 'package:user/models/menus.dart';
-import 'package:user/widgets/app_drawer.dart';
+import 'package:user/widgets/cart_appbar.dart';
 import 'package:user/widgets/item_design.dart';
 import 'package:user/widgets/progress_bar.dart';
 
@@ -17,60 +17,7 @@ class _ItemsScreenState extends State<ItemsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const AppDrawer(),
-      appBar: AppBar(
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
-              gradient: LinearGradient(
-            colors: [Colors.amber, Colors.cyan],
-            begin: FractionalOffset(0.0, 0.0),
-            end: FractionalOffset(1.0, 0.0),
-            stops: [0.0, 1.0],
-            tileMode: TileMode.clamp,
-          )),
-        ),
-        title: const Text(
-          "IFOOD",
-          style: TextStyle(
-            fontSize: 30,
-          ),
-        ),
-        centerTitle: true,
-        actions: [
-          Stack(
-            children: [
-              IconButton(
-                onPressed: () {
-                  // Navigator.push(context,
-                  //     MaterialPageRoute(builder: (c) => const MenuUploadScreen()));
-                },
-                icon: const Icon(
-                  Icons.shopping_cart,
-                  size: 30,
-                  color: Color.fromARGB(255, 255, 255, 255),
-                ),
-              ),
-              const Positioned(
-                  top: 13,
-                  right: 20,
-                  child: Center(
-                    child: Icon(
-                      Icons.brightness_1,
-                      size: 20.0,
-                      color: Colors.white,
-                    ),
-
-                    // Text(
-                    //   "0",
-                    //   style: TextStyle(
-                    //       color: Color.fromARGB(255, 143, 23, 23),
-                    //       fontSize: 15),
-                    // ),
-                  ))
-            ],
-          )
-        ],
-      ),
+      appBar: CartAppbar(),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -82,7 +29,7 @@ class _ItemsScreenState extends State<ItemsScreen> {
             StreamBuilder<QuerySnapshot>(
                 stream: FirebaseFirestore.instance
                     .collection("sellers")
-                    .doc(widget.model!.sellerUID)
+                    .doc(widget.model!.sellerUid)
                     .collection("menus")
                     .doc(widget.model!.menuID)
                     .collection("items")

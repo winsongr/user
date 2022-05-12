@@ -60,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
           )),
         ),
         title: Text(
-          "${sharedPreferences?.getString("name")}",
+          "${sharedPreferences?.getString("userName")}",
         ),
         centerTitle: true,
       ),
