@@ -39,18 +39,14 @@ class _CartAppbarState extends State<CartAppbar> {
       ),
       centerTitle: true,
       actions: [
-        Stack(
+    Stack(
           children: [
             IconButton(
-              onPressed: () {
-                // Navigator.push(context,
-                //     MaterialPageRoute(builder: (c) => const MenuUploadScreen()));
+              icon: const Icon(Icons.shopping_cart, color: Colors.cyan,),
+              onPressed: ()
+              {
+                //send user to cart screen
               },
-              icon: const Icon(
-                Icons.shopping_cart,
-                size: 30,
-                color: Color.fromARGB(255, 255, 255, 255),
-              ),
             ),
             Positioned(
               child: Stack(
@@ -58,24 +54,20 @@ class _CartAppbarState extends State<CartAppbar> {
                   Icon(
                     Icons.brightness_1,
                     size: 20.0,
-                    color: Colors.white,
+                    color: Colors.green,
                   ),
                   Positioned(
-                      top: 13,
-                      right: 20,
-                      child: Center(
-                        child: Text(
-                          "0",
-                          style: TextStyle(
-                              color: Color.fromARGB(255, 143, 23, 23),
-                              fontSize: 15),
-                        ),
-                      ))
+                    top: 3,
+                    right: 4,
+                    child: Center(
+                      child: Text("0", style: TextStyle(color: Colors.white, fontSize: 12),),
+                    ),
+                  ),
                 ],
               ),
             ),
           ],
-        )
+        ),
       ],
     );
   }

@@ -92,7 +92,7 @@ class _LoginScreenState extends State<LoginScreen>
         .then((snapshot) async {
           if(snapshot.exists)
           {
-            await sharedPreferences!.setString("userUid", currentUser.uid);
+            await sharedPreferences!.setString("userUID", currentUser.uid);
             await sharedPreferences!.setString("userEmail", snapshot.data()!["userEmail"]);
             await sharedPreferences!.setString("userName", snapshot.data()!["userName"]);
             await sharedPreferences!.setString("photoUrl", snapshot.data()!["photoUrl"]);

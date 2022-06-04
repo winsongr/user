@@ -29,7 +29,7 @@ class _ItemsScreenState extends State<ItemsScreen> {
             StreamBuilder<QuerySnapshot>(
                 stream: FirebaseFirestore.instance
                     .collection("sellers")
-                    .doc(widget.model!.sellerUid)
+                    .doc(widget.model!.sellerUID)
                     .collection("menus")
                     .doc(widget.model!.menuID)
                     .collection("items")
